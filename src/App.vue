@@ -52,7 +52,7 @@ const showToast = (message: string, type: 'success' | 'error' | 'warning' = 'suc
 
 // Handle copy for WeChat
 const handleCopy = async () => {
-  const success = await copyForWeChat(content.value)
+  const success = await copyForWeChat(content.value, currentTheme.value)
   if (success) {
     showToast('✅ 已复制到剪贴板，可以粘贴到公众号编辑器了！')
   } else {
