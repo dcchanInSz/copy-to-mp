@@ -97,6 +97,51 @@ npm run build:tauri
 - **Tauri 2** - 桌面框架
 - **WebView2** - Windows 嵌入式浏览器
 
+## 🖥️ 桌面应用发布
+
+### GitHub Actions 自动构建
+
+项目已配置 GitHub Actions，工作流文件：`.github/workflows/release.yml`
+
+#### 发布步骤
+
+1. **创建并推送新标签：**
+   ```bash
+   # 创建标签
+   git tag v1.0.0
+   
+   # 推送到远程
+   git push origin v1.0.0
+   ```
+
+2. **创建 Release：**
+   - 访问 GitHub 仓库的 [Releases](https://github.com/dcchanInSz/copy-to-mp/releases) 页面
+   - 点击「Draft a new release」
+   - 选择刚推送的标签 `v1.0.0`
+   - 填写发布说明
+   - 点击「Publish release」
+
+3. **自动构建：**
+   - GitHub Actions 会自动触发构建
+   - 构建完成后，自动上传安装包到 Release
+
+#### 构建产物
+
+| 系统 | 安装包 |
+|------|--------|
+| Windows | `.msi`, `.exe` |
+| macOS | `.dmg`, `.app` |
+| Linux | `.deb`, `.AppImage` |
+
+### 手动构建
+
+```bash
+# Windows
+npm run build:tauri
+
+# 产物位于: src-tauri/target/release/bundle/
+```
+
 ## 📝 许可证
 
 MIT License
