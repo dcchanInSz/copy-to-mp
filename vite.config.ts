@@ -1,25 +1,24 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      "@": path.resolve(process.cwd(), "src"),
+    },
   },
   server: {
     port: 3000,
-    strictPort: true
   },
   build: {
-    target: 'esnext',
-    minify: 'esbuild',
+    target: "esnext",
+    minify: "esbuild",
     rollupOptions: {
       output: {
-        manualChunks: undefined
-      }
-    }
-  }
-})
+        manualChunks: undefined,
+      },
+    },
+  },
+});
