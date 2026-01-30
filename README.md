@@ -9,6 +9,7 @@
 - **📋 一键复制** - 复制到公众号编辑器，样式完整保留
 - **💾 本地存储** - 自动保存内容，防止丢失
 - **🌙 暗色模式** - 保护眼睛，夜间写作更舒适
+- **🖥️ 桌面应用** - 支持 Windows/macOS/Linux
 
 ## 🎨 预览主题
 
@@ -21,6 +22,8 @@
 
 ## 🚀 快速开始
 
+### Web 版本
+
 ```bash
 # 安装依赖
 npm install
@@ -31,6 +34,29 @@ npm run dev
 # 构建生产版本
 npm run build
 ```
+
+### 桌面应用（Tauri）
+
+#### 前置要求
+
+- **Rust**: `winget install Rustlang.Rust.MSVC`
+- **Node.js**: 18+
+- **Windows**: 需要安装 WebView2（Windows 11 已内置）
+
+#### 安装与运行
+
+```bash
+# 安装依赖
+npm install
+
+# 开发模式运行桌面应用
+npm run dev:tauri
+
+# 构建桌面安装包
+npm run build:tauri
+```
+
+构建完成后，安装包位于 `src-tauri/target/release/bundle/` 目录。
 
 ## 📖 使用说明
 
@@ -59,12 +85,17 @@ npm run build
 
 ## 🛠️ 技术栈
 
+### 前端
 - **Vue 3** - 前端框架
 - **TypeScript** - 类型安全
 - **Vite** - 构建工具
 - **marked** - Markdown 解析
 - **dompurify** - HTML 安全过滤
-- **Clipboard API** - 复制到剪贴板
+
+### 桌面端（Tauri）
+- **Rust** - 后端逻辑
+- **Tauri 2** - 桌面框架
+- **WebView2** - Windows 嵌入式浏览器
 
 ## 📝 许可证
 
